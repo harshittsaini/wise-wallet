@@ -11,9 +11,9 @@ exports.getExpenses = async (req, res) => {
 };
 
 exports.addExpense = async (req, res) => {
-  const { description, amount } = req.body;
+  const { description, amount, paymentMethod, date } = req.body;
   try {
-    const newExpense = new Expense({ description, amount });
+    const newExpense = new Expense({ description, amount, paymentMethod, date });
     await newExpense.save();
     res.status(201).json(newExpense);
   } catch (err) {

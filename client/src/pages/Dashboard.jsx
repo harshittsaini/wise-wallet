@@ -23,11 +23,13 @@ const Dashboard = () => {
     };
 
   return (
-    <div className="dashboard-container">
-      <h2>Expense Tracker</h2>
+    <div className=" w-full">
+      <h2>Wise Wallet</h2>
       <h1> Welcome {user?.firstName}! Here Are Your Finances:</h1>
-      
-      <UserButton />
+      <div className=" absolute flex gap-3 m-3">
+        <UserButton />
+        <p>User Account</p>
+      </div>
       <ExpenseForm addExpense={addExpense} />
       <ExpenseList expenses={expenses} setExpenses={setExpenses} />
     </div>

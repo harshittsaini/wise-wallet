@@ -17,16 +17,31 @@ const ExpenseList = ({ expenses, setExpenses }) => {
   };
 
   return (
-    <div>
-      <h2>Expense List</h2>
-      <ul>
-        {expenses.map(expense => (
-          <li key={expense._id}>
-            {expense.description}: ${expense.amount}
-            <button onClick={() => deleteExpense(expense._id)}>Delete</button>
-          </li>
-        ))}
-      </ul>
+    <div className='mt-8'>
+      <table className=' w-full border-collapse'>
+        <thead>
+          <tr>
+            <th>Description</th>
+            <th>Amount</th>
+            <th>Payment Method</th>
+            <th>Date</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          {expenses.map(expense => (
+            <tr key={expense._id}>
+              <td>{expense.description}</td>
+              <td>${expense.amount}</td>
+              <td>{expense.paymentMethod}</td>
+              <td>{new Date(expense.date).toLocaleDateString()}</td>
+              <td>
+                <button onClick={() => deleteExpense(expense._id)} className='m-2'>Delete</button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 };
