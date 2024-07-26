@@ -24,10 +24,10 @@ const Dashboard = () => {
 
   return (
     <div className="dashboard-container">
+      <h2>Expense Tracker</h2>
       <h1> Welcome {user?.firstName}! Here Are Your Finances:</h1>
+      
       <UserButton />
-
-      <h1>Expense Tracker</h1>
       <ExpenseForm addExpense={addExpense} />
       <ExpenseList expenses={expenses} setExpenses={setExpenses} />
     </div>

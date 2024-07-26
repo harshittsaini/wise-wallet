@@ -17,7 +17,7 @@ const ExpenseForm = ({ addExpense }) => {
   return (
     <form onSubmit={onSubmit}>
       <div>
-        <label>Description</label>
+        <label>Description: </label>
         <input
           type="text"
           value={description}
@@ -25,7 +25,7 @@ const ExpenseForm = ({ addExpense }) => {
         />
       </div>
       <div>
-        <label>Amount</label>
+        <label>Amount: </label>
         <input
           type="number"
           value={amount}
