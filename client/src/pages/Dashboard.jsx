@@ -23,8 +23,8 @@ const Dashboard = () => {
     };
 
   return (
-    <div className=" w-full">
-      <h2>Wise Wallet</h2>
+    <div >
+      <h2 className="font-semibold font-serif">Wise Wallet</h2>
       <h1> Welcome {user?.firstName}! Here Are Your Finances:</h1>
       <div className=" absolute flex gap-3 m-3">
         <UserButton />
