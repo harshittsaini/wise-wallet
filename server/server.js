@@ -28,6 +28,9 @@ mongoose.connect(process.env.MONGO_URI)
 const expensesRoute = require('./routes/expenses');
 app.use('/api/expenses', expensesRoute);
 
+const stockRoutes = require('./routes/stockRoutes');
+app.use('/api/stocks', stockRoutes);
+
 const PORT = process.env.PORT || 5001;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);

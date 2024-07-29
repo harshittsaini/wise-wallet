@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import ExpenseList from '../components/ExpenseList';
 import ExpenseForm from '../components/ExpenseForm';
 import axios from '../utils/axios';
+import StockPrices from "../components/StockPrices";
 
 const Dashboard = () => {
 
@@ -32,6 +33,7 @@ const Dashboard = () => {
       </div>
       <ExpenseForm addExpense={addExpense} />
       <ExpenseList expenses={expenses} setExpenses={setExpenses} />
+      <StockPrices />
     </div>
   )
 }
