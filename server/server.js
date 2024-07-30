@@ -31,6 +31,10 @@ app.use('/api/expenses', expensesRoute);
 const stockRoutes = require('./routes/stockRoutes');
 app.use('/api/stocks', stockRoutes);
 
+app.get('/', (req, res) => {
+    res.json('hello this is live')
+})
+
 const PORT = 5001;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
