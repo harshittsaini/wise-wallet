@@ -6,10 +6,12 @@ const ExpenseForm = ({ addExpense }) => {
   const [description, setDescription] = useState('');
   const [amount, setAmount] = useState('');
   const [paymentMethod, setPaymentMethod] = useState('Cash');
-  const [date, setDate] = useState('');
+  const [date, setDate] = useState(new Date().toISOString().substring(0, 10)); // Default to today
+
 
   const onSubmit = async (e) => {
     e.preventDefault();
+    
     const res = await axios.post('/expenses', { description, amount, paymentMethod, date });
     addExpense(res.data);
     setDescription('');

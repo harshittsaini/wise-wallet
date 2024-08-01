@@ -28,9 +28,6 @@ mongoose.connect(process.env.MONGO_URI)
 const expensesRoute = require('./routes/expenses');
 app.use('/api/expenses', expensesRoute);
 
-const stockRoutes = require('./routes/stockRoutes');
-app.use('/api/stocks', stockRoutes);
-
 app.get('/', (req, res) => {
     res.json('hello this is live')
 })

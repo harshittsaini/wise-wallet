@@ -6,5 +6,6 @@ const expensesController = require('../controllers/expenseController');
 router.get('/', expensesController.getExpenses);
 router.post('/', expensesController.addExpense);
 router.delete('/:id', expensesController.deleteExpense);
+router.get('/monthly', expensesController.getMonthlyExpenses);
 
 module.exports = router;

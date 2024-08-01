@@ -33,3 +33,22 @@ exports.deleteExpense = async (req, res) => {
         res.status(500).json({ message: err.message });
       }
 };
+
+exports.getMonthlyExpenses = async (req, res) => {
+  try {
+    const expenses = await Expense.aggregate([
+      {
+        $group: {
+          _id: { month: { $month: "$date" }, year: { $year: "$date" } },
+          totalAmount: { $sum: "$amount" },
+        },
+      },
+      {
+        $sort: { "_id.year": 1, "_id.month": 1 },
+      },
+    ]);
+    res.json(expenses);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+};

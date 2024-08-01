@@ -3,13 +3,14 @@ import React, { useState, useEffect } from 'react';
 import ExpenseList from '../components/ExpenseList';
 import ExpenseForm from '../components/ExpenseForm';
 import axios from '../utils/axios';
-import StockPrices from "../components/StockPrices";
+import ExpenseGraph from "../components/ExpenseGraph";
 
 const Dashboard = () => {
 
     const { user } = useUser();
 
     const [expenses, setExpenses] = useState([]);
+    const [showGraph, setShowGraph] = useState(false);
 
     useEffect(() => {
         const fetchExpenses = async () => {
@@ -33,7 +34,12 @@ const Dashboard = () => {
       </div>
       <ExpenseForm addExpense={addExpense} />
       <ExpenseList expenses={expenses} setExpenses={setExpenses} />
-      <StockPrices />
+      <div className="mt-4">
+        <button className="m-5" onClick={() => setShowGraph(!showGraph)}>
+          {showGraph ? 'Hide Monthly Expenses' : 'Show Monthly Expenses'}
+        </button>
+        {showGraph && <ExpenseGraph />}
+      </div>
     </div>
   )
 }
