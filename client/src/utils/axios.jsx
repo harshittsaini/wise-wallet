@@ -2,5 +2,5 @@
 import axios from 'axios';
 
 export default axios.create({
-  baseURL: 'http://localhost:4000/api',
+  baseURL: 'https://expense-tracker-api-1rx3.onrender.com/api',
 });
