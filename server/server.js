@@ -7,6 +7,7 @@ const dotenv = require('dotenv');
 
 const app = express();
 dotenv.config();
+const port = process.env.PORT || 5010;
 
 // Middleware
 app.use(cors());
@@ -15,10 +16,7 @@ app.use(bodyParser.json());
 // Connect to MongoDB
 mongoose.connect(process.env.MONGO_URI)
     .then(()=>{
-        //listen for request
-        app.listen(process.env.PORT, ()=>{
-            console.log('connected to db and listening to port ', PORT)
-        })
+        console.log('connected to db and listening to port ', port)
     })
     .catch((error) => {
         console.log(error)
@@ -32,8 +30,7 @@ app.get('/', (req, res) => {
     res.json('hello this is live')
 })
 
-const PORT = 5001;
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
 });
 
