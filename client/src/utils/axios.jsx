@@ -1,6 +1,14 @@
 // client/src/utils/axios.js
-import axios from 'axios';
+import axios from "axios";
+const token = localStorage.getItem("token");
 
-export default axios.create({
-  baseURL: 'https://expense-tracker-api-1rx3.onrender.com/api',
+// Create an axios instance
+const axiosInstance = axios.create({
+  baseURL: "http://localhost:4000/api", // Replace with your backend base URL
+  headers: {
+    "Content-Type": "application/json",
+    Authorization: `Bearer ${token}`,
+  },
 });
+
+export default axiosInstance;

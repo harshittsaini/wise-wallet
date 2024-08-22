@@ -25,6 +25,8 @@ mongoose.connect(process.env.MONGO_URI)
 // Routes
 const expensesRoute = require('./routes/expenses');
 app.use('/api/expenses', expensesRoute);
+const userRoutes = require('./routes/userRoutes');
+app.use('/api/users', userRoutes);
 
 app.get('/', (req, res) => {
     res.json('hello this is live')
