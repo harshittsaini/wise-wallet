@@ -8,6 +8,7 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
+  const [success, setSuccess] = useState("");
 
   const navigate = useNavigate();
 
@@ -42,8 +43,11 @@ const Login = () => {
       // Assuming the API returns a token on successful login
       if (response.data.token) {
         localStorage.setItem('token', response.data.token);
+        setSuccess("Login successful!");
         // Redirect to another page
-        navigate('/dashboard');  // Redirect to the dashboard or another page
+        setTimeout(() => {
+          navigate("/dashboard"); // Redirect to the login page after a short delay
+        }, 1000);  // Redirect to the dashboard or another page
       } else {
         setPasswordError('Login failed. Please check your credentials.');
       }
@@ -78,7 +82,7 @@ const Login = () => {
         />
         <label className="errorLabel">{passwordError}</label>
       </div>
-      <br />
+      {success && <p style={{ color: "green" }} className="m-2 font-semibold">{success}</p>}
       <div className={"inputContainer"}>
         <button className={"inputButton"} type="submit">
           Log in
