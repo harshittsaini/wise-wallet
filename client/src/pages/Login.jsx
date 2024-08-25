@@ -35,26 +35,25 @@ const Login = () => {
 
     //login API integration
     try {
-      const response = await axios.post('/users/login', {
+      const response = await axios.post("/users/login", {
         email,
         password,
       });
 
       // Assuming the API returns a token on successful login
       if (response.data.token) {
-        localStorage.setItem('token', response.data.token);
+        localStorage.setItem("token", response.data.token);
         setSuccess("Login successful!");
         // Redirect to another page
         setTimeout(() => {
           navigate("/dashboard"); // Redirect to the login page after a short delay
-        }, 1000);  // Redirect to the dashboard or another page
+        }, 1000); // Redirect to the dashboard or another page
       } else {
-        setPasswordError('Login failed. Please check your credentials.');
+        setPasswordError("Login failed. Please check your credentials.");
       }
     } catch (err) {
-      setPasswordError('Login failed. Please check your credentials.');
+      setPasswordError("Login failed. Please check your credentials.");
     }
-
   };
 
   return (
@@ -82,7 +81,12 @@ const Login = () => {
         />
         <label className="errorLabel">{passwordError}</label>
       </div>
-      {success && <p style={{ color: "green" }} className="m-2 font-semibold">{success}</p>}
+      <br />
+      {success && (
+        <p style={{ color: "green" }} className="m-2 font-semibold">
+          {success}
+        </p>
+      )}
       <div className={"inputContainer"}>
         <button className={"inputButton"} type="submit">
           Log in
