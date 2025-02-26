@@ -38,8 +38,9 @@ const Auth = () => {
         <Navigate to="/dashboard" />
       </SignedIn> */}
       <div className="bottom-[-165px] relative">
-        <p className="bottom-0">Made by Harshit Kumar</p>
-        <p>Copyright ©️ 2024</p>
+        {/*<p className="bottom-0">Made by Harshit Kumar</p>
+        <p>Copyright ©️ 2024</p>*/}
+        
       </div>
     </div>
   );
